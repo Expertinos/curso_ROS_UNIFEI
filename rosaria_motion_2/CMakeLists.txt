@@ -32,6 +32,7 @@ add_executable(rosaria_motion_node
 )
 
 add_dependencies(rosaria_motion_node 
+	rosaria_motion_gen_cpp
 	${catkin_EXPORTED_TARGETS}
 )
 
@@ -44,6 +45,7 @@ add_executable(rosaria_motion_client_node
 )
 
 add_dependencies(rosaria_motion_client_node 
+	rosaria_motion_gen_cpp
 	${catkin_EXPORTED_TARGETS}
 )
 

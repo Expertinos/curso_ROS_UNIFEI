@@ -33,6 +33,7 @@ add_executable(login_manager_node
 )
 
 add_dependencies(login_manager_node 
+	login_manager_gen_cpp
 	${catkin_EXPORTED_TARGETS}
 )
 
