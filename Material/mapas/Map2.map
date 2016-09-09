@@ -1,0 +1,51 @@
+2D-Map
+Resolution: 0
+LineMinPos: 12988 -9277
+LineMaxPos: 33085 177
+NumLines: 30
+LinesAreSorted: true
+MapInfo: DockType "Name=Dock" "Label=Dock" "NameRequired=1" "Color0=0xffff00" "Color1=0x000000" "Color2=0x000000" "FtFix=1" "FtSize=12" "Heading=Required"
+MapInfo: GoalType "Name=Goal" "Label=Goal" "NameRequired=1" "Color0=0x008080" "Color1=0x00ffff" "Color2=0x008080" "FtFix=1" "FtSize=12"
+MetaInfo: Rotation "Value=0"
+MetaInfo: Feature "Name=changeprocessing"
+RouteInfo: EveryBefore "_everyBefore"
+RouteInfo: EveryAfter "_everyAfter"
+SchedInfo: Current "_Friday"
+SchedInfo: Current "_Monday"
+SchedInfo: Current "_Saturday"
+SchedInfo: Current "_Sunday"
+SchedInfo: Current "_Thursday"
+SchedInfo: Current "_Tuesday"
+SchedInfo: Current "_Wednesday"
+LINES
+12988 -9072 33085 -9072
+13030 0 33030 0
+13048 -1951 18038 -1951
+13125 59 13125 -9207
+13151 -6972 15015 -6972
+13599 -1877 13599 -1877
+15983 26 15983 26
+16891 -3997 28875 -3997
+16893 -5003 28957 -5003
+17043 -5081 17043 -3036
+17966 -1951 20792 -1951
+18019 82 18019 -2013
+18066 -6995 17080 -6995
+18088 -9277 18088 -7034
+19132 20 19132 -869
+19167 -833 20009 -833
+19969 35 19969 -838
+23022 -2013 23022 153
+23985 -7005 23985 -9183
+27995 -8192 29054 -8192
+28006 -7043 28006 -9254
+28013 -1980 28013 177
+28032 -1951 25026 -1951
+28881 -3933 28881 -5977
+29008 -9112 29008 -8096
+30021 79 30021 -800
+30857 82 29956 -819
+32944 161 32944 -9254
+32987 -2013 29921 -2013
+33003 -6956 29816 -6956
+DATA
