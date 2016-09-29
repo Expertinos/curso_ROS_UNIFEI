@@ -15,13 +15,16 @@ namespace eca419
 		{
 		public:
 			virtual ~EnumConversor();
-			E getEnumerated();
-			virtual E getEnumerated(int id) = 0;
-			virtual E getEnumerated(std::string nome) = 0;
-			std::string str();
-			virtual std::string str(E enumerated) = 0;
-			const char* c_str();
-			virtual const char* c_str(E enumerated) = 0;
+			E getEnumerated() const;
+			virtual E getEnumerated(int id) const = 0;
+			virtual E getEnumerated(std::string nome) const = 0;
+			int getId() const;
+			virtual int getId(std::string nome) const = 0;
+			virtual int getId(E enumerated) const = 0;
+			std::string str() const;
+			virtual std::string str(E enumerated) const = 0;
+			const char* c_str() const;
+			virtual const char* c_str(E enumerated) const = 0;
 			void operator =(int id);
 			void operator =(std::string nome);
 			void operator =(E enumerated);
@@ -50,19 +53,25 @@ namespace eca419
 		{}
 
 		template<typename E>
-		E EnumConversor<E>::getEnumerated()
+		E EnumConversor<E>::getEnumerated() const
 		{
 			return enumerated_;
 		}
 
 		template<typename E>
-		std::string EnumConversor<E>::str()
+		int EnumConversor<E>::getId() const
+		{
+			return getId(enumerated_);
+		}
+
+		template<typename E>
+		std::string EnumConversor<E>::str() const
 		{
 			return str(enumerated_);
 		}
 
 		template<typename E>
-		const char* EnumConversor<E>::c_str()
+		const char* EnumConversor<E>::c_str() const
 		{
 			return str().c_str();
 		}

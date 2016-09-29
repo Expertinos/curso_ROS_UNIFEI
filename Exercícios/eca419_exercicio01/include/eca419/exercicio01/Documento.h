@@ -14,13 +14,17 @@ namespace eca419
 		public:
 			Documento(const Documento& documento);
 			virtual ~Documento();
-			virtual std::string str();
-			const char* c_str();
+			virtual std::string str() const;
+			const char* c_str() const;
+			virtual Documento* clone() const = 0;
 			virtual bool operator ==(const Documento& documento);
 			bool operator !=(const Documento& documento);
 			virtual void operator =(const Documento& documento);
-			std::string getNumero();
-			std::string getNomeMae();
+			virtual std::string getTipo() const = 0;
+			bool isInstanceOf(std::string type) const;
+			bool isInstanceOf(const Documento& documento) const;
+			std::string getNumero() const;
+			std::string getNomeMae() const;
 
 		protected:
 			Documento(std::string numero, std::string nome_mae);

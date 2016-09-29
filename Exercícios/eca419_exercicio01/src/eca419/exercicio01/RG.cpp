@@ -33,13 +33,23 @@ namespace eca419
 			emissor_ = rg.emissor_;
 		}
 
-		std::string RG::str()
+		std::string RG::str() const
 		{
-			return "RG: {" + DocumentoIdentificador::str() +
-					(emissor_ != "" ? ", emissor: " : "") + emissor_ + "}";
+			return DocumentoIdentificador::str() +
+					(emissor_.empty() ? "" : ", emissor: ") + emissor_ + "}";
 		}
 
-		std::string RG::getEmissor()
+		Documento* RG::clone() const
+		{
+			return new RG(*this);
+		}
+
+		std::string RG::getTipo() const
+		{
+			return "RG";
+		}
+
+		std::string RG::getEmissor() const
 		{
 			return emissor_;
 		}

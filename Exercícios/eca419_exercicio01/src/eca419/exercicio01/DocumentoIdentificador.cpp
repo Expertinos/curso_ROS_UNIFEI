@@ -34,12 +34,12 @@ namespace eca419
 		DocumentoIdentificador::~DocumentoIdentificador()
 		{}
 
-		std::string DocumentoIdentificador::str()
+		std::string DocumentoIdentificador::str() const
 		{
 			return Documento::str() +
-					(nome_pai_ != "" ? ", pai: " : "") + nome_pai_ +
+					(nome_pai_.empty() ? "" : ", pai: ") + nome_pai_ +
 					", nascimento: " + nascimento_ +
-					(emissao_ != "" ? ", emissao: " : "") + emissao_;
+					(emissao_.empty() ? "" : ", emissao: ") + emissao_;
 		}
 
 		void DocumentoIdentificador::operator =(const DocumentoIdentificador& documento)
@@ -50,17 +50,17 @@ namespace eca419
 			emissao_ = documento.emissao_;
 		}
 
-		std::string DocumentoIdentificador::getNascimento()
+		std::string DocumentoIdentificador::getNascimento() const
 		{
 			return nascimento_;
 		}
 
-		std::string DocumentoIdentificador::getNomePai()
+		std::string DocumentoIdentificador::getNomePai() const
 		{
 			return nome_pai_;
 		}
 
-		std::string DocumentoIdentificador::getEmissao()
+		std::string DocumentoIdentificador::getEmissao() const
 		{
 			return emissao_;
 		}

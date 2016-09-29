@@ -20,8 +20,10 @@ namespace eca419
 			RG(const RG& rg);
 			virtual ~RG();
 			virtual void operator =(const RG& rg);
-			virtual std::string str();
-			std::string getEmissor();
+			virtual std::string str() const;
+			virtual std::string getTipo() const;
+			virtual Documento* clone() const;
+			std::string getEmissor() const;
 			void setEmissor(std::string emissor);
 
 		private:

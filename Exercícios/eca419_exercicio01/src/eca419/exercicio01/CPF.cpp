@@ -21,9 +21,19 @@ namespace eca419
 		CPF::~CPF()
 		{}
 
-		std::string CPF::str()
+		std::string CPF::str() const
 		{
-			return "CPF: {" + Documento::str() + "}";
+			return Documento::str() + "}";
+		}
+
+		std::string CPF::getTipo() const
+		{
+			return "CPF";
+		}
+
+		Documento* CPF::clone() const
+		{
+			return new CPF(*this);
 		}
 
 	}

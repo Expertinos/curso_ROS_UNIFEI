@@ -24,7 +24,7 @@ namespace eca419
 			SexoConversor::~SexoConversor()
 			{}
 
-			Sexo SexoConversor::getEnumerated(int id)
+			Sexo SexoConversor::getEnumerated(int id) const
 			{
 				switch (id)
 				{
@@ -36,7 +36,7 @@ namespace eca419
 				return SexoConversor::getDefault();
 			}
 
-			Sexo SexoConversor::getEnumerated(std::string nome)
+			Sexo SexoConversor::getEnumerated(std::string nome) const
 			{
 				if (nome == "FEMININO" || nome == "F" || nome == "feminino" || nome == "Feminino")
 				{
@@ -49,7 +49,32 @@ namespace eca419
 				return getDefault();
 			}
 
-			std::string SexoConversor::str(Sexo sexo)
+			int SexoConversor::getId(std::string nome) const
+			{
+				if (nome == "FEMININO" || nome == "F" || nome == "feminino" || nome == "Feminino")
+				{
+					return 0;
+				}
+				else if (nome == "MASCULINO" || nome == "M" || nome == "masculino" || nome == "Masculino")
+				{
+					return 1;
+				}
+				return -1;
+			}
+
+			int SexoConversor::getId(Sexo sexo) const
+			{
+				switch (sexo)
+				{
+					case FEMININO:
+						return 0;
+					case MASCULINO:
+						return 1;
+				}
+				return -1;
+			}
+
+			std::string SexoConversor::str(Sexo sexo) const
 			{
 				switch (sexo)
 				{
@@ -61,9 +86,15 @@ namespace eca419
 				return "";
 			}
 
-			const char* SexoConversor::c_str(Sexo sexo)
+			const char* SexoConversor::c_str(Sexo sexo) const
 			{
 				return str(sexo).c_str();
+			}
+
+			int SexoConversor::toId(Sexo sexo)
+			{
+				SexoConversor conversor(sexo);
+				return conversor.getId();
 			}
 
 			Sexo SexoConversor::toEnumerated(int id)
@@ -76,6 +107,12 @@ namespace eca419
 			{
 				SexoConversor conversor(nome);
 				return conversor.getEnumerated();
+			}
+
+			bool SexoConversor::isValid(std::string nome)
+			{
+				return nome == "FEMININO" || nome == "F" || nome == "feminino" || nome == "Feminino" ||
+						nome == "MASCULINO" || nome == "M" || nome == "masculino" || nome == "Masculino";
 			}
 
 			std::string SexoConversor::toString(Sexo sexo)
@@ -101,6 +138,16 @@ namespace eca419
 				sexos.push_back(MASCULINO);
 				sexos.push_back(FEMININO);
 				return sexos;
+			}
+
+			Sexo SexoConversor::getMinimum()
+			{
+				return FEMININO;
+			}
+
+			Sexo SexoConversor::getMaximum()
+			{
+				return MASCULINO;
 			}
 
 		}

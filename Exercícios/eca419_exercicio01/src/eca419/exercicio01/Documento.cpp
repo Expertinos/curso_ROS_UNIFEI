@@ -24,24 +24,24 @@ namespace eca419
 		Documento::~Documento()
 		{}
 
-		std::string Documento::str()
+		std::string Documento::str() const
 		{
-			return "numero: " + numero_ + ", mae: " + nome_mae_;
+			return getTipo() + ": {numero: " + numero_ + ", mae: " + nome_mae_;
 		}
 
-		const char* Documento::c_str()
+		const char* Documento::c_str() const
 		{
 			return str().c_str();
 		}
 
 		bool Documento::operator ==(const Documento& documento)
 		{
-			return numero_ == documento.numero_;
+			return isInstanceOf(documento) && numero_ == documento.numero_;
 		}
 
 		bool Documento::operator !=(const Documento& documento)
 		{
-			return !operator !=(documento);
+			return !operator ==(documento);
 		}
 
 		void Documento::operator =(const Documento& documento)
@@ -50,12 +50,22 @@ namespace eca419
 			nome_mae_ = documento.nome_mae_;
 		}
 
-		std::string Documento::getNumero()
+		bool Documento::isInstanceOf(std::string tipo) const
+		{
+			return getTipo() == tipo;
+		}
+
+		bool Documento::isInstanceOf(const Documento& documento) const
+		{
+			return isInstanceOf(documento.getTipo());
+		}
+
+		std::string Documento::getNumero() const
 		{
 			return numero_;
 		}
 
-		std::string Documento::getNomeMae()
+		std::string Documento::getNomeMae() const
 		{
 			return nome_mae_;
 		}

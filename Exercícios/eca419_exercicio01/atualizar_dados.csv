@@ -1,8 +1,8 @@
-Nome,Número RG,Emissão RG,Emissor RG,Número CPF,Número CNH,Emissao CNH,Numero Titulo,Zona Eleitoral,Sessão
-Alana Mariah Camila Cavalcanti,,,,714.109.478-40,,,776451172305,675,68
-Bryan Heitor Freitas,17.407.510-8,06/08/09,SSP/MG,,32631728480,30/12/2015,250676140213,35,12
-Yuri Diogo Pinto,,,,013.506.084-24,46279666749,18/06/2016,,,
-Amanda Lavínia Maitê Ribeiro,14.675.076-7,,,,,,,,
-Bárbara Luana Gabrielly dos Santos,,,,925.526.359-54,11305547657,,,,
-Débora Maria Martins,44.078.952-7,,,,51571389023,,152785350132,34,2
-Marcela Alice Pinto,,,,,,,634137082755,67,63
+Nome,Numero RG,Emissao RG,Emissor RG,Numero CPF,Numero CNH,Categoria CNH,Validade CNH,Emissao CNH,Numero Titulo,Zona Eleitoral,Sessao
+Alana Mariah Camila Cavalcanti,,,,714.109.478-40,,,,,776451172305,675,68
+Bryan Heitor Freitas,17.407.510-8,06/08/09,SSP/MG,,32631728480,,30/12/2020,30/12/2015,250676140213,35,12
+Yuri Diogo Pinto,,,,013.506.084-24,46279666749,AB,18/06/2021,18/06/2016,,,
+Amanda Lavínia Maitê Ribeiro,14.675.076-7,,,,,,,,,,
+Bárbara Luana Gabrielly dos Santos,,,,925.526.359-54,11305547657,B,,,,,
+Débora Maria Martins,44.078.952-7,,,,51571389023,A,,,152785350132,34,2
+Marcela Alice Pinto,,,,,,,,,634137082755,67,63

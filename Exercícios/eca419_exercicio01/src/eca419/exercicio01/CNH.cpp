@@ -6,79 +6,98 @@ namespace eca419
 	namespace exercicio01
 	{
 
-		CNH::CNH(std::string numero, const RG& rg, const CPF& cpf, std::string emissao)
-			: DocumentoIdentificador(numero, rg, emissao),
-				rg_(new RG(rg)),
-				cpf_(new CPF(cpf))
-		{}
-
-		CNH::CNH(std::string numero, std::string nome_mae,
-						 std::string nascimento, std::string cpf_numero,
-						 std::string rg_numero, std::string rg_emissao,
-						 std::string rg_emissor, std::string nome_pai,
-						 std::string emissao)
-			: DocumentoIdentificador(numero, nome_mae, nascimento, nome_pai, emissao),
-				rg_(new RG(rg_numero, nome_mae, nascimento, nome_pai, rg_emissao, rg_emissor)),
-				cpf_(new CPF(cpf_numero, nome_mae))
-		{}
+		CNH::CNH(std::string numero, RG *rg, CPF *cpf, std::string categoria,
+						 std::string validade, std::string emissao)
+			: DocumentoIdentificador(numero, *rg, emissao),
+				categoria_(categoria),
+				validade_(validade)
+		{
+			rg_ = rg;
+			cpf_ = cpf;
+		}
 
 		CNH::CNH(const CNH &cnh)
 			: DocumentoIdentificador(cnh),
-				rg_(new RG(*cnh.rg_)),
-				cpf_(new CPF(*cnh.cpf_))
-		{}
+				categoria_(cnh.categoria_),
+				validade_(cnh.validade_)
+		{
+			rg_ = (RG*) cnh.rg_->clone();
+			cpf_ = (CPF*) cnh.cpf_->clone();
+		}
 
 		CNH::~CNH()
 		{
-			if (rg_)
-			{
-				delete rg_;
-			}
-			if (cpf_)
-			{
-				delete cpf_;
-			}
+			rg_ = NULL;
+			cpf_ = NULL;
 		}
 
 		void CNH::operator =(const CNH& cnh)
 		{
 			DocumentoIdentificador::operator =(cnh);
-			if (cnh.rg_)
-			{
-				delete rg_;
-			}
-			rg_ = new RG(*cnh.rg_);
-			if (cnh.cpf_)
-			{
-				delete cpf_;
-			}
-			cpf_ = new CPF(*cnh.cpf_);
+			rg_ = (RG*) cnh.rg_->clone();
+			cpf_ = (CPF*) cnh.cpf_->clone();
+			categoria_ = cnh.categoria_;
+			validade_ = cnh.validade_;
 		}
 
-		std::string CNH::str()
+		std::string CNH::str() const
 		{
-			return "CNH: {" + DocumentoIdentificador::str() +
+			return DocumentoIdentificador::str() +
 					", rg: " + rg_->getNumero() +
-					", cpf: " + cpf_->getNumero() + "}";
+					", cpf: " + cpf_->getNumero() +
+					", categoria: " + categoria_ +
+					(validade_.empty() ? "" : ", emissao: ") + validade_ + "}";
 		}
 
-		RG CNH::getRG()
+		std::string CNH::getTipo() const
+		{
+			return "CNH";
+		}
+
+		Documento* CNH::clone() const
+		{
+			return new CNH(*this);
+		}
+
+		RG CNH::getRG() const
 		{
 			return *rg_;
 		}
 
-		void CNH::setRG(const RG& rg)
+		void CNH::setRG(RG *rg)
 		{
-			if (rg_)
+			if (rg)
 			{
-				delete rg_;
+				rg_ = rg;
 			}
-			rg_ = new RG(rg);
 		}
 
-		CPF CNH::getCPF()
+		CPF CNH::getCPF() const
 		{
 			return *cpf_;
+		}
+
+		std::string CNH::getCategoria() const
+		{
+			return categoria_;
+		}
+
+		void CNH::setCategoria(std::string categoria)
+		{
+			if (!categoria.empty())
+			{
+				categoria_ = categoria;
+			}
+		}
+
+		std::string CNH::getValidade() const
+		{
+			return validade_;
+		}
+
+		void CNH::setValidade(std::string validade)
+		{
+			validade_ = validade;
 		}
 
 	}

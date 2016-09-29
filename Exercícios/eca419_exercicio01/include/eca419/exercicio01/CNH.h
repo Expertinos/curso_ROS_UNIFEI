@@ -14,24 +14,26 @@ namespace eca419
 		class CNH : public DocumentoIdentificador
 		{
 		public:
-			CNH(std::string numero, const RG& rg, const CPF& cpf,
-					std::string emissao = "");
-			CNH(std::string numero, std::string nome_mae,
-					std::string nascimento, std::string cpf_numero,
-					std::string rg_numero, std::string rg_emissao = "",
-					std::string rg_emissor = "", std::string nome_pai = "",
-					std::string emissao = "");
+			CNH(std::string numero, RG *rg, CPF* cpf, std::string categoria,
+					std::string validade = "", std::string emissao = "");
 			CNH(const CNH& cnh);
 			virtual ~CNH();
 			virtual void operator =(const CNH& cnh);
-			virtual std::string str();
-			RG getRG();
-			void setRG(const RG& rg);
-			CPF getCPF();
+			virtual std::string str() const;
+			virtual std::string getTipo() const;
+			virtual Documento* clone() const;
+			RG getRG() const;
+			void setRG(RG *rg);
+			CPF getCPF() const;
+			std::string getCategoria() const;
+			void setCategoria(std::string categoria);
+			std::string getValidade() const;
+			void setValidade(std::string validade);
 
 		private:
 			RG *rg_;
 			CPF *cpf_;
+			std::string categoria_, validade_;
 
 		};
 

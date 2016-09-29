@@ -16,7 +16,9 @@ namespace eca419
 			CPF(std::string numero, const Documento& outro);
 			CPF(const CPF& cpf);
 			virtual ~CPF();
-			virtual std::string str();
+			virtual std::string str() const;
+			virtual std::string getTipo() const;
+			virtual Documento* clone() const;
 
 		};
 

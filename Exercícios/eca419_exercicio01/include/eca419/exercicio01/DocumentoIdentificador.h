@@ -14,11 +14,11 @@ namespace eca419
 		public:
 			DocumentoIdentificador(const DocumentoIdentificador& documento);
 			virtual ~DocumentoIdentificador();
-			virtual std::string str();
+			virtual std::string str() const;
 			virtual void operator =(const DocumentoIdentificador& documento);
-			std::string getNascimento();
-			std::string getNomePai();
-			std::string getEmissao();
+			std::string getNascimento() const;
+			std::string getNomePai() const;
+			std::string getEmissao() const;
 			void setEmissao(std::string emissao);
 
 		protected:
