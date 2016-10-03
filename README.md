@@ -1,7 +1,7 @@
-ECA419 &reg; <img src="https://adm-net-a.unifei.edu.br/intranet/arquivos/imagens/logos/LogoEFEI.jpg" align="right" alt="fuzzylite">
+ECA419 - Laboratório de Robótica <img src="https://www.unifei.edu.br/files/LogoEFEI_small.jpg" align="right" alt="unifei">
 ===========
 
-ECA419 - Laboratório de Robótica
+Engenharia de Controle e Automação
 --------------------------------
 
 Por: [Adriano Henrique Rossette Leite](http://www.github.com/adrianohrl), Bs.
