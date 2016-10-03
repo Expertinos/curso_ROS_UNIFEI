@@ -2,10 +2,11 @@ ECA419 - Laboratório de Robótica <img src="https://www.unifei.edu.br/files/Log
 ===========
 
 Engenharia de Controle e Automação
---------------------------------
+----------------------------------
 
-Por: [Adriano Henrique Rossette Leite](http://www.github.com/adrianohrl), Bs.
-     [Audeliano Wolian Li](http://www.github.com/audeliano), Ms.
+Por: [Adriano Henrique Rossette Leite](http://lattes.cnpq.br/0344999175185128), Bs.;
+     [Audeliano Wolian Li](http://lattes.cnpq.br/0868980336504303), Ms.;
+     [Guilherme Sousa Bastos](http://lattes.cnpq.br/1508015681115848), Dr.
 
 Este repositório contém o material necessário para a realização do laboratório de Robótica (ECA419) oferecido no curso de graduação de Engenharia de Controle e Automação (ECA) da Universidade Federal de Itajubá (UNIFEI).
 
