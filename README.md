@@ -19,7 +19,7 @@ O principal objetivo desta disciplina é introduzir o *framework* ROS aos alunos
 [Introdução](#introduction) &nbsp;
 [Instruções](#instructions) &nbsp;
 [Aulas](#classes) : [(1) Introdução ao ROS](#class-01), [(2) Introdução ao QtCreator](#class-02), [(3) Pacotes e Nós no ROS](#class-03), [(4) Mensagens, Tópicos e Serviços no ROS](#class-04), [(5) Nós Publicadores e Nós Assinantes](#class-05)
-[Exercícios](#exercicies) : [(1) Relembrando POO em C++](#exercicie-01), [(2) Modelando sistemas baseados em ROS]
+[Exercícios](#exercicies) : [(1) Relembrando POO em C++](#exercicie-01), [(2) Modelando sistemas baseados em ROS](#exercicie-02)
 [Trabalhos](#homeworks) : [(1)](#homework-01), [(2)](#homework-02)
 
 
