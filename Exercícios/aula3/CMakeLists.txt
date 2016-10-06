@@ -16,3 +16,6 @@ include_directories(
 
 add_executable(emissor src/emissor.cpp)
 target_link_libraries(emissor ${catkin_LIBRARIES})
+
+add_executable(receptor src/receptor.cpp)
+target_link_libraries(receptor ${catkin_LIBRARIES})
