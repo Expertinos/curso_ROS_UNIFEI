@@ -9,15 +9,15 @@
  *  Maintainer: Professores de ECA419 (eca419.unifei@gmail.com)
  */
 
-#include "aula4/ReceptorNode.h"
+#include "aula5/ReceptorNode.h"
 
-namespace aula4
+namespace aula5
 {
 
 ReceptorNode::ReceptorNode(ros::NodeHandle *nh)
   : Node(nh, 20)
 {
-  timer_ = nh->createTimer(ros::Duration(5), &ReceptorNode::timerCallback, this);
+  timer_ = nh->createTimer(ros::Duration(10), &ReceptorNode::timerCallback, this);
 }
 
 ReceptorNode::~ReceptorNode()

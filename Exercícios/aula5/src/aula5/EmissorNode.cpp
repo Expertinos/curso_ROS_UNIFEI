@@ -9,15 +9,15 @@
  *  Maintainer: Professores de ECA419 (eca419.unifei@gmail.com)
  */
 
-#include "aula4/EmissorNode.h"
+#include "aula5/EmissorNode.h"
 
-namespace aula4
+namespace aula5
 {
 
 EmissorNode::EmissorNode(ros::NodeHandle *nh)
   : Node(nh, 10)
 {
-  timer_ = nh->createTimer(ros::Duration(5), &EmissorNode::timerCallback, this);
+  timer_ = nh->createTimer(ros::Duration(7.5), &EmissorNode::timerCallback, this);
 }
 
 EmissorNode::~EmissorNode()

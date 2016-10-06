@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="name" default="adrianohrl"/>
+	 <group ns="$(arg name)">
+	     <node name="emissor_node" pkg="aula5" type="emissor_node" output="screen">
+		  </node>
+		  <node name="receptor_node" pkg="aula5" type="receptor_node" output="screen">
+		  </node>
+	 </group>
+</launch>

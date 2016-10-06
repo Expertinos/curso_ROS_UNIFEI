@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.3)
 
-project(aula4)
+project(aula5)
 
 find_package(catkin REQUIRED COMPONENTS roscpp)
 
@@ -13,14 +13,14 @@ include_directories(include ${catkin_INCLUDE_DIRS})
 
 set(H_FILES
 	 include/Node.h
-	 include/aula4/EmissorNode.h
-	 include/aula4/ReceptorNode.h
+	 include/aula5/EmissorNode.h
+	 include/aula5/ReceptorNode.h
 	 )
 
 set(CPP_FILES
 	 src/Node.cpp
-	 src/aula4/EmissorNode.cpp
-	 src/aula4/ReceptorNode.cpp
+	 src/aula5/EmissorNode.cpp
+	 src/aula5/ReceptorNode.cpp
 	 )
 
 add_executable(emissor_node src/emissor_node.cpp ${CPP_FILES})
