@@ -17,7 +17,7 @@ namespace aula5
 EmissorNode::EmissorNode(ros::NodeHandle *nh)
   : Node(nh, 10)
 {
-  timer_ = nh->createTimer(ros::Duration(7.5), &EmissorNode::timerCallback, this);
+  timer_ = nh->createTimer(ros::Duration(6.75), &EmissorNode::timerCallback, this);
 }
 
 EmissorNode::~EmissorNode()
@@ -25,6 +25,7 @@ EmissorNode::~EmissorNode()
 
 void EmissorNode::timerCallback(const ros::TimerEvent &event)
 {
+  timer_.stop();
   Node::shutdown();
 }
 

@@ -17,7 +17,7 @@ namespace aula5
 ReceptorNode::ReceptorNode(ros::NodeHandle *nh)
   : Node(nh, 20)
 {
-  timer_ = nh->createTimer(ros::Duration(10), &ReceptorNode::timerCallback, this);
+  timer_ = nh->createTimer(ros::Duration(11.5), &ReceptorNode::timerCallback, this);
 }
 
 ReceptorNode::~ReceptorNode()
@@ -25,6 +25,7 @@ ReceptorNode::~ReceptorNode()
 
 void ReceptorNode::timerCallback(const ros::TimerEvent &event)
 {
+  timer_.stop();
   Node::shutdown();
 }
 
