@@ -12,7 +12,11 @@
 #ifndef _RECEPTOR_NODE_H_
 #define _RECEPTOR_NODE_H_
 
+#include <aula5_msgs/Robo.h>
 #include "Node.h"
+#include "aula5/distancias/DistanciaConverter.h"
+
+#define PI 3.14159
 
 namespace aula5
 {
@@ -24,8 +28,9 @@ public:
   virtual ~ReceptorNode();
 
 private:
-  void timerCallback(const ros::TimerEvent& event);
-  ros::Timer timer_;
+  void infoCallback(const aula5_msgs::Robo::ConstPtr& info_msg);
+  ros::Subscriber robo_info_sub_;
+
 };
 
 }

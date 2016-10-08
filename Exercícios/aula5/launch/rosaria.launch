@@ -3,13 +3,10 @@
     <arg name="name" default="adrianohrl"/>
 	 <arg name="port" default="/dev/ttyUSB0"/>
 	 <group ns="$(arg name)">
-	     <node name="emissor_node" pkg="aula5" type="emissor_node" output="screen">
-		  </node>
-		  <node name="receptor_node" pkg="aula5" type="receptor_node" output="screen">
-		  </node>
-		  <node name="RosAria" pkg="rosaria" type="RosAria" output="screen">
-		      <param name="_port" value="$(arg port)"/>
-		  </node>
-		  <!--remap from="/$(arg name)/RosAria" to="$(arg name)"/-->
+	 	<node name="emissor_node" pkg="aula5" type="emissor_node" output="screen"/>
+		<node name="receptor_node" pkg="aula5" type="receptor_node" output="screen"/>
+		<node name="RosAria" pkg="rosaria" type="RosAria" output="screen">
+			<param name="_port" value="$(arg port)"/>
+		</node>
 	 </group>
 </launch>

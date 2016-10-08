@@ -12,7 +12,11 @@
 #ifndef _EMISSOR_NODE_H_
 #define _EMISSOR_NODE_H_
 
+#include <aula5_msgs/Robo.h>
 #include "Node.h"
+#include "aula5/distancias/DistanciaConverter.h"
+
+#define PI 3.14159
 
 namespace aula5
 {
@@ -26,6 +30,8 @@ public:
 private:
   void timerCallback(const ros::TimerEvent& event);
   ros::Timer timer_;
+  ros::Publisher robo_info_pub_;
+
 };
 
 }
