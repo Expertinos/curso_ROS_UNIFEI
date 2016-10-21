@@ -13,6 +13,7 @@
 #define _FUZZY_CONTROLLER_NODE_H_
 
 #include "Node.h"
+#include <fl/Headers.h>
 
 #define PI 3.14159
 
@@ -27,6 +28,11 @@ public:
 
 private:
   virtual void controlLoop();
+  fl::Engine* engine_;
+  fl::InputVariable* ambient_;
+  fl::OutputVariable* power_;
+  fl::RuleBlock* rule_block_;
+  int counter_;
 
 };
 
