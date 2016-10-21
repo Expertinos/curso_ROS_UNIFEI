@@ -18,7 +18,7 @@ O principal objetivo desta disciplina é introduzir o *framework* ROS aos alunos
 ### Sumário
 [Introdução](#introduction) &nbsp;
 [Instruções](#instructions) &nbsp;
-[Aulas](#classes) : [(1) Introdução ao ROS](#class-01), [(2) Introdução ao QtCreator](#class-02), [(3) Pacotes e Nós no ROS](#class-03), [(4) Mensagens, Tópicos e Serviços no ROS](#class-04), [(5) Nós Publicadores e Nós Assinantes](#class-05) &nbsp;
+[Aulas](#classes) : [(1) Introdução ao ROS](#class-01), [(2) Introdução ao QtCreator](#class-02), [(3) Pacotes e Nós no ROS](#class-03), [(4) Mensagens, Tópicos e Serviços no ROS](#class-04), [(5) Nós Publicadores e Nós Assinantes](#class-05), [(6) ROS e Lógica Fuzzy](#class-05) &nbsp;
 [Exercícios](#exercicies) : [(1) Relembrando POO em C++](#exercicie-01), [(2) Modelando sistemas baseados em ROS](#exercicie-02) &nbsp;
 [Trabalhos](#homeworks) : [(1)](#homework-01), [(2)](#homework-02) &nbsp;
 
@@ -38,6 +38,10 @@ O principal objetivo desta disciplina é introduzir o *framework* ROS aos alunos
 ### <a name="class-03">Pacotes e Nós no ROS</a>
 ### <a name="class-04">Mensagens, Tópicos e Serviços no ROS</a>
 ### <a name="class-05">Nós Publicadores e Nós Assinantes no ROS</a>
+### <a name="class-06">ROS e lógica Fuzzy</a>
+Instalar e construir a biblioteca [fuzzylite](https://github.com/fuzzylite/fuzzylite) no diretório pessoal da Máquina Virtual (ou seja, @ /home/viki).
+
+Instalar o simulador MobileSim na Máquina Virtual através do arquivo que foi disponibilizado neste repositório.
 
 ***
 
