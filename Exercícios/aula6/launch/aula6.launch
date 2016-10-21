@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="name" default="adrianohrl"/>
+	 <arg name="port" default="/dev/ttyUSB0"/>
+	 <group ns="$(arg name)">
+	 	<node name="fuzzy_controller_node" pkg="aula6" type="fuzzy_controller_node" output="screen"/>
+		<node name="RosAria" pkg="rosaria" type="RosAria" output="screen">
+			<param name="_port" value="$(arg port)"/>
+		</node>
+	 </group>
+</launch>
