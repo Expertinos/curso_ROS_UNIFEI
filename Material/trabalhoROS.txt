@@ -1,0 +1,38 @@
+/*
+
+roscore
+
+rosrun rosaria RosAria _port:=<IP onde o MobilSim está rodando>:8101
+
+rostopic list
+
+rostopic info /RosAria/sonar
+	Type: sensor_msgs/PointCloud
+
+*/
+
+1ª Tarefa: Fazer uma pesquisa de como converter sensor_msgs/PointCloud em sensor_msgs/Range
+
+rostopic info /RosAria/pose
+	Type: nav_msgs/Odometry
+
+2ª Tarefa: Converter o nav_msgs/Odometry em geometry_msgs/Pose2D
+
+3ª Tarefa: Criar um nó CONVERSOR que subscreva de /RosAria/sonar e /RosAria/pose, faça as devidas conversões e publique nos tópicos /RosAria/sonar_range e /RosAria/pose2D
+
+4ª Tarefa: Criar um nó CONTROLADOR_DE_DESLOCAMENTO que faça o controle do movimento do robô conforme a presença de um obstáculo à frente do robô. Para tal deverá ser utilizado técnicas de controle (PID, etc) ou de inteligência artificial (Fuzzy, etc) ou outros. Fica a cargo do grupo decidir qual implementar.
+
+5ª Tarefa: O robô ao atingir a distância mínima, deverá virar para o lado em que há obstáculos mais distantes.
+
+6ª Tarefa: Criar duas mensagens customizadas deslocamento.msg e distancia.msg com campos:
+	DESLOCAMENTO.MSG
+	float64 x
+	float64 y
+	
+	DISTANCIA.MSG
+	float64 distancia_euclidiana
+	deslocamento deslocamento_acumulado
+
+7ª Tarefa: Publicar no tópico /RosAria/distancia_deslocamento a distância Euclidiana do pose inicial até o pose atual e o deslocamento acumulado no eixo x e y durante a execução da aplicação.
+
+8ª Tarefa: A aplicação deverá rodar durante 3 min e após este tempo, deverá ser encerrada. OBS: criar como variável global para setar o tempo com maior facilidade.
