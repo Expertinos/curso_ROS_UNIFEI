@@ -50,22 +50,79 @@ FuzzyControllerNode::FuzzyControllerNode(ros::NodeHandle *nh)
   {
     throw fl::Exception("Engine not ready. The following errors were encountered: " + status, FL_AT);
   }
+
+  vel_pub_ = nh->advertise<geometry_msgs::Twist>(
+        "RosAria/cmd_vel", 1);
+  sonar_sub_ = nh->subscribe(
+        "RosAria/sonar", 1,
+        &FuzzyControllerNode::sonarCb,
+        this);
 }
 
 FuzzyControllerNode::~FuzzyControllerNode()
-{}
+{
+  vel_pub_.shutdown();
+  sonar_sub_.shutdown();
+  if (engine_)
+  {
+    delete engine_;
+  }
+  if (ambient_)
+  {
+    delete ambient_;
+  }
+  if (power_)
+  {
+    delete power_;
+  }
+  if (rule_block_)
+  {
+    delete rule_block_;
+  }
+}
 
 void FuzzyControllerNode::controlLoop()
 {
-  double light(ambient_->getMinimum() + counter_++ * (ambient_->range() / 50));
-  ambient_->setInputValue(light);
+  double input(ambient_->getMinimum() + counter_++ * (ambient_->range() / 50));
+  ambient_->setInputValue(input);
   engine_->process();
   double output(power_->getOutputValue());
-  ROS_INFO("Ambient.input = %f -> Power.output = %f", light, output);
-  if (light > 1)
+  ROS_INFO("Ambient.input = %f -> Power.output = %f", input, output);
+  if (counter_ > 50)
   {
     counter_ = 0;
   }
+  publishVelocity(100 * output, output);
+  for (int i(0); i < ultrassonics_.size(); i++)
+  {
+    ROS_WARN("%d: %f", i, ultrassonics_[i]);
+  }
 }
+
+void FuzzyControllerNode::publishVelocity(
+    double vel_x, double vel_theta)
+{
+  geometry_msgs::Twist msg;
+  msg.linear.x = vel_x;
+  msg.angular.z = vel_theta;
+  vel_pub_.publish(msg);
+}
+
+void FuzzyControllerNode::sonarCb(
+    const sensor_msgs::PointCloud::ConstPtr &msg)
+{
+  ultrassonics_.clear();
+  for (int i(0); i < msg->points.size(); i++)
+  {
+    geometry_msgs::Point32 point(msg->points[i]);
+    ultrassonics_.push_back(
+          sqrt(pow(point.x, 2) +
+               pow(point.y, 2)));
+  }
+}
+
+
+
+
 
 }

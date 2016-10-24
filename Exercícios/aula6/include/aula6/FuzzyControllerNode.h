@@ -12,8 +12,11 @@
 #ifndef _FUZZY_CONTROLLER_NODE_H_
 #define _FUZZY_CONTROLLER_NODE_H_
 
-#include "Node.h"
+#include <math.h>
 #include <fl/Headers.h>
+#include <geometry_msgs/Twist.h>
+#include <sensor_msgs/PointCloud.h>
+#include "Node.h"
 
 #define PI 3.14159
 
@@ -33,6 +36,14 @@ private:
   fl::OutputVariable* power_;
   fl::RuleBlock* rule_block_;
   int counter_;
+
+  ros::Publisher vel_pub_;
+  ros::Subscriber sonar_sub_;
+  std::vector<double> ultrassonics_;
+  void publishVelocity(double vel_x,
+                       double vel_theta);
+  void sonarCb(const
+               sensor_msgs::PointCloud::ConstPtr& msg);
 
 };
 
