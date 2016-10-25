@@ -16,13 +16,26 @@ namespace eca419
 			cpf_ = cpf;
 		}
 
-		CNH::CNH(const CNH &cnh)
-			: DocumentoIdentificador(cnh),
+		CNH::CNH(const Pessoa& pessoa, const CNH &cnh)
+			: DocumentoIdentificador(pessoa, cnh),
 				categoria_(cnh.categoria_),
 				validade_(cnh.validade_)
 		{
-			rg_ = (RG*) cnh.rg_->clone();
-			cpf_ = (CPF*) cnh.cpf_->clone();
+			rg_ = (RG*) pessoa.getDocumento("RG");
+			cpf_ = (CPF*) pessoa.getDocumento("CPF");
+		}
+
+		CNH::CNH(const CNH &cnh)
+			: DocumentoIdentificador(cnh),
+				categoria_(cnh.categoria_),
+				validade_(cnh.validade_),
+				rg_(cnh.rg_),
+				cpf_(cnh.cpf_)
+		{
+			rg_ = NULL;
+			cpf_ = NULL;
+			//rg_ = (RG*) cnh.rg_->clone();
+			//cpf_ = (CPF*) cnh.cpf_->clone();
 		}
 
 		CNH::~CNH()
@@ -34,8 +47,10 @@ namespace eca419
 		void CNH::operator =(const CNH& cnh)
 		{
 			DocumentoIdentificador::operator =(cnh);
-			rg_ = (RG*) cnh.rg_->clone();
-			cpf_ = (CPF*) cnh.cpf_->clone();
+			rg_ = cnh.rg_;
+			cpf_ = cnh.cpf_;
+			//rg_ = (RG*) cnh.rg_->clone();
+			//cpf_ = (CPF*) cnh.cpf_->clone();
 			categoria_ = cnh.categoria_;
 			validade_ = cnh.validade_;
 		}
@@ -43,8 +58,8 @@ namespace eca419
 		std::string CNH::str() const
 		{
 			return DocumentoIdentificador::str() +
-					", rg: " + rg_->getNumero() +
-					", cpf: " + cpf_->getNumero() +
+					(rg_ ? ", rg: " + rg_->getNumero() : "") +
+					(cpf_ ? ", cpf: " + cpf_->getNumero() : "") +
 					", categoria: " + categoria_ +
 					(validade_.empty() ? "" : ", emissao: ") + validade_ + "}";
 		}

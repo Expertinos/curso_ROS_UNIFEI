@@ -1,7 +1,7 @@
 #ifndef TITULO_DE_ELEITOR_H
 #define TITULO_DE_ELEITOR_H
 
-#include "eca419/exercicio01/Documento.h"
+#include "eca419/exercicio01/Pessoa.h"
 
 namespace eca419
 {
@@ -14,6 +14,7 @@ namespace eca419
 		public:
 			TituloDeEleitor(std::string numero, std::string nome_mae, std::string zona_eleitoral = "", std::string sessao = "");
 			TituloDeEleitor(std::string numero, const Documento& outro, std::string zona_eleitoral = "", std::string sessao = "");
+			TituloDeEleitor(const Pessoa& pessoa, const TituloDeEleitor& titulo_de_eleitor);
 			TituloDeEleitor(const TituloDeEleitor& titulo_de_eleitor);
 			virtual ~TituloDeEleitor();
 			virtual std::string str() const;

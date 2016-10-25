@@ -1,7 +1,7 @@
 #ifndef DOCUMENTO_IDENTIFICADOR_H
 #define DOCUMENTO_IDENTIFICADOR_H
 
-#include "eca419/exercicio01/Documento.h"
+#include "eca419/exercicio01/Pessoa.h"
 
 namespace eca419
 {
@@ -12,6 +12,7 @@ namespace eca419
 		class DocumentoIdentificador : public Documento
 		{
 		public:
+			DocumentoIdentificador(const Pessoa& pessoa, const DocumentoIdentificador& documento);
 			DocumentoIdentificador(const DocumentoIdentificador& documento);
 			virtual ~DocumentoIdentificador();
 			virtual std::string str() const;

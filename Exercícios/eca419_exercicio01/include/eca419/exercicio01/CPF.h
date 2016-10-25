@@ -1,7 +1,7 @@
 #ifndef CPF_H
 #define CPF_H
 
-#include "eca419/exercicio01/Documento.h"
+#include "eca419/exercicio01/Pessoa.h"
 
 namespace eca419
 {
@@ -14,6 +14,7 @@ namespace eca419
 		public:
 			CPF(std::string numero, std::string nome_mae);
 			CPF(std::string numero, const Documento& outro);
+			CPF(const Pessoa& pessoa, const CPF& cpf);
 			CPF(const CPF& cpf);
 			virtual ~CPF();
 			virtual std::string str() const;

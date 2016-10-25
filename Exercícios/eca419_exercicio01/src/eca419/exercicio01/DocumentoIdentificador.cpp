@@ -24,6 +24,13 @@ namespace eca419
 				emissao_(emissao)
 		{}
 
+		DocumentoIdentificador::DocumentoIdentificador(const Pessoa& pessoa, const DocumentoIdentificador &documento)
+			: Documento(pessoa, documento),
+				nascimento_(documento.nascimento_),
+				nome_pai_(documento.nome_pai_),
+				emissao_(documento.emissao_)
+		{}
+
 		DocumentoIdentificador::DocumentoIdentificador(const DocumentoIdentificador &documento)
 			: Documento(documento),
 				nascimento_(documento.nascimento_),

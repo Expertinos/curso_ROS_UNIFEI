@@ -18,6 +18,10 @@ namespace eca419
 			: Documento(cpf)
 		{}
 
+		CPF::CPF(const Pessoa& pessoa, const CPF &cpf)
+			: Documento(pessoa, cpf)
+		{}
+
 		CPF::~CPF()
 		{}
 

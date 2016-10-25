@@ -1,4 +1,5 @@
 #include "eca419/exercicio01/Documento.h"
+#include "eca419/exercicio01/Pessoa.h"
 
 namespace eca419
 {
@@ -14,6 +15,11 @@ namespace eca419
 		Documento::Documento(std::string numero, const Documento& outro)
 			: numero_(numero),
 				nome_mae_(outro.nome_mae_)
+		{}
+
+		Documento::Documento(const Pessoa& pessoa, const Documento &documento)
+			: numero_(documento.numero_),
+				nome_mae_(documento.nome_mae_)
 		{}
 
 		Documento::Documento(const Documento &documento)

@@ -184,7 +184,7 @@ namespace eca419
 		bool Pessoa::removeDocumento(const Documento& documento)
 		{
 			std::map<std::string, Documento*>::iterator it(documentos_.find(documento.getTipo()));
-			if (it == documentos_.end() || *it->second != documento)
+			if (it == documentos_.end())// || *it->second != documento)
 			{
 				return false;
 			}

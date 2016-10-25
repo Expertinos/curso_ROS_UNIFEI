@@ -18,6 +18,12 @@ namespace eca419
 				sessao_(sessao)
 		{}
 
+		TituloDeEleitor::TituloDeEleitor(const Pessoa& pessoa, const TituloDeEleitor& titulo_de_eleitor)
+			: Documento(pessoa, titulo_de_eleitor),
+				zona_eleitoral_(titulo_de_eleitor.zona_eleitoral_),
+				sessao_(titulo_de_eleitor.sessao_)
+		{}
+
 		TituloDeEleitor::TituloDeEleitor(const TituloDeEleitor& titulo_de_eleitor)
 			: Documento(titulo_de_eleitor),
 				zona_eleitoral_(titulo_de_eleitor.zona_eleitoral_),
@@ -30,8 +36,8 @@ namespace eca419
 		std::string TituloDeEleitor::str() const
 		{
 			return Documento::str() +
-					", zona eleitoral: " + zona_eleitoral_ +
-					", sessao: " + sessao_ + "}";
+					(zona_eleitoral_.empty() ? "" : ", zona eleitoral: ") + zona_eleitoral_ +
+					(sessao_.empty() ? "" : ", sessao: ") + sessao_ + "}";
 		}
 
 		Documento* TituloDeEleitor::clone() const

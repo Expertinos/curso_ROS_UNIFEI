@@ -9,9 +9,12 @@ namespace eca419
 	namespace exercicio01
 	{
 
+		class Pessoa;
+
 		class Documento
 		{
 		public:
+			Documento(const Pessoa& pessoa, const Documento& documento);
 			Documento(const Documento& documento);
 			virtual ~Documento();
 			virtual std::string str() const;

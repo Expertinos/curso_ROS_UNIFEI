@@ -17,6 +17,7 @@ namespace eca419
 				 std::string emissao = "", std::string emissor = "");
 			RG(std::string numero, const DocumentoIdentificador& outro,
 				 std::string emissao = "", std::string emissor = "");
+			RG(const Pessoa& pessoa, const RG& rg);
 			RG(const RG& rg);
 			virtual ~RG();
 			virtual void operator =(const RG& rg);

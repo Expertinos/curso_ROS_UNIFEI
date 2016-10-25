@@ -2,7 +2,6 @@
 #define CNH_H
 
 #include "eca419/exercicio01/CPF.h"
-#include "eca419/exercicio01/DocumentoIdentificador.h"
 #include "eca419/exercicio01/RG.h"
 
 namespace eca419
@@ -16,6 +15,7 @@ namespace eca419
 		public:
 			CNH(std::string numero, RG *rg, CPF* cpf, std::string categoria,
 					std::string validade = "", std::string emissao = "");
+			CNH(const Pessoa& pessoa, const CNH& cnh);
 			CNH(const CNH& cnh);
 			virtual ~CNH();
 			virtual void operator =(const CNH& cnh);

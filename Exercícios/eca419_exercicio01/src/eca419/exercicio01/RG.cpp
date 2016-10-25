@@ -19,6 +19,11 @@ namespace eca419
 				emissor_(emissor)
 		{}
 
+		RG::RG(const Pessoa& pessoa, const RG &rg)
+			: DocumentoIdentificador(pessoa, rg),
+				emissor_(rg.emissor_)
+		{}
+
 		RG::RG(const RG &rg)
 			: DocumentoIdentificador(rg),
 				emissor_(rg.emissor_)
